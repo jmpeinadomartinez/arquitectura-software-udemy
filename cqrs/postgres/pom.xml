@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.6.6</version>
+		<version>3.4.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.danielblanco.arquitecturasmodernas</groupId>
@@ -27,13 +27,13 @@
 		<dependency>
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
+			<version>9.22.3</version>
 		</dependency>
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-			<version>42.3.3</version>
+			<version>42.7.5</version>
 		</dependency>
-
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -41,18 +41,26 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-docker-compose</artifactId>
+		    <version>3.4.3</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
 		<plugins>
+
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
 			<plugin>
 				<groupId>org.flywaydb</groupId>
 				<artifactId>flyway-maven-plugin</artifactId>
-				<version>8.0.0</version>
+				<version>9.22.3</version>
 				<configuration>
 					<url>jdbc:postgresql://localhost:10001/postgres</url>
 					<user>postgres</user>
@@ -60,6 +68,7 @@
 					<schemas>
 						<schema>cqrs</schema>
 					</schemas>
+				
 				</configuration>
 			</plugin>
 		</plugins>
