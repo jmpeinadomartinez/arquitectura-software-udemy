@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "d081ae9e-08f3-4c0b-8876-0393911ae97f",
-		"name": "CQRS",
+		"_postman_id": "d081ae9e-08f3-4c0b-8876-0393911ae970",
+		"name": "CQRS-POSTGRES",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "21458613"
 	},
@@ -44,16 +44,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/post/1/comment",
+					"raw": "http://localhost:8080/post",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"post",
-						"1",
-						"comment"
+						"post"
 					]
 				}
 			},
