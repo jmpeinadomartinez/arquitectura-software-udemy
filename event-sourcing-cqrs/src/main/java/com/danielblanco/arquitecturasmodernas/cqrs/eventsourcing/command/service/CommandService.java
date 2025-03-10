@@ -38,7 +38,7 @@ public class CommandService {
   }
 
   public CommentAddedEvent addComment(String postId, CommentAddedEvent event) {
-    event.setPostId(UUID.randomUUID().toString());
+    event.setCommentId(UUID.randomUUID().toString());
     event.setPostId(postId);
     eventStore.addEvent(event);
     return event;
@@ -58,6 +58,7 @@ public class CommandService {
 
   public ReactionAddedEvent addReaction(String postId, String commentId,
     ReactionAddedEvent event) {
+	event.setReactionId(UUID.randomUUID().toString());
     event.setCommentId(commentId);
     event.setPostId(postId);
     eventStore.addEvent(event);
