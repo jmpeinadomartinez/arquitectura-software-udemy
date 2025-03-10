@@ -12,6 +12,7 @@ import com.danielblanco.arquitecturasmodernas.cqrs.eventsourcing.command.event.r
 import com.danielblanco.arquitecturasmodernas.cqrs.eventsourcing.command.repository.EventStore;
 import com.danielblanco.arquitecturasmodernas.cqrs.eventsourcing.query.model.Comment;
 import com.danielblanco.arquitecturasmodernas.cqrs.eventsourcing.query.model.Post;
+import com.danielblanco.arquitecturasmodernas.cqrs.eventsourcing.query.model.Reaction;
 import com.danielblanco.arquitecturasmodernas.cqrs.eventsourcing.query.repository.PostRepository;
 import java.util.Date;
 import java.util.List;
@@ -101,7 +102,10 @@ public class SyncService {
   }
 
   private void applyEvent(ReactionAddedEvent event) {
-    // Similar logic
+	Reaction reaction = new Reaction();
+	reaction.setId(event.getReactionId());
+	reaction.setEmoji(event.getEmoji());
+	saveReaction(event.getPostId(), event.getCommentId(), reaction);
   }
 
   private void applyEvent(ReactionRemovedEvent event) {
@@ -123,4 +127,12 @@ public class SyncService {
     mongoOps.findAndModify(query, update,
       FindAndModifyOptions.options().returnNew(true).upsert(true), Post.class);
   }
+  
+  private void saveReaction(String postId, String commentId, Reaction reaction) {
+	Query query = new Query(Criteria.where("id").is(postId).and("comments.id").is(commentId));
+	Update update = new Update();
+	update.addToSet("comments.$.reactions", reaction);
+	mongoOps.findAndModify(query, update,
+	  FindAndModifyOptions.options().returnNew(true).upsert(true), Post.class);
+  }  
 }
