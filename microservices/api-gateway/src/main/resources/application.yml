@@ -15,15 +15,15 @@ spring:
     gateway:
       routes:
         - id: userService
-          uri: lb://USER-SERVICE
+          uri: lb://user-service
           predicates:
             - Path=/user-service/***
         - id: productService
-          uri: lb://PRODUCT-SERVICE
+          uri: lb://product-service
           predicates:
             - Path=/product-service/***
         - id: orderService
-          uri: lb://ORDER-SERVICE
+          uri: lb://order-service
           predicates:
             - Path=/order-service/***
 

@@ -4,6 +4,7 @@ docker rmi api-gateway:latest
 docker rmi user-service:latest
 docker rmi product-service:latest
 docker rmi order-service:latest
+docker rmi postgres:15.6-alpine
 
 mvn clean install -f ./eureka-server/pom.xml
 mvn clean install -f ./api-gateway/pom.xml

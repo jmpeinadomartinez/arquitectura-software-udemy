@@ -1,0 +1,126 @@
+{
+	"info": {
+		"_postman_id": "ac6eebb9-2563-46c5-8d20-e6896aaf8ec9",
+		"name": "MICROSERVICES",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21458613"
+	},
+	"item": [
+		{
+			"name": "GET all user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9876/user-service/",
+					"host": [
+						"localhost"
+					],
+					"port": "9876",
+					"path": [
+						"user-service",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET user by id",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9876/user-service/1",
+					"host": [
+						"localhost"
+					],
+					"port": "9876",
+					"path": [
+						"user-service",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET all products",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:6666/product-service/",
+					"host": [
+						"localhost"
+					],
+					"port": "6666",
+					"path": [
+						"product-service",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET product by id",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:6666/product-service/1",
+					"host": [
+						"localhost"
+					],
+					"port": "6666",
+					"path": [
+						"product-service",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST nuevo pedido para user 1",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": 1,\r\n    \"orderLines\": [\r\n        {\r\n            \"productId\": 1,\r\n            \"quantity\": 1\r\n        },\r\n        {\r\n            \"productId\": 2,\r\n            \"quantity\": 2\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:7777/order-service/",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"order-service",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

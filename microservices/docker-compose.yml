@@ -1,4 +1,7 @@
-version: "3"
+version: '3.8'
+
+name: arquitecturas_modernas_microservices
+
 services:
   eureka-server:
     image: eureka-server
@@ -21,7 +24,7 @@ services:
       - user-service-db
 
   user-service-db:
-    image: postgres:alpine
+    image: postgres:15.6-alpine
     restart: always
     environment:
       - POSTGRES_USER=postgres
@@ -40,7 +43,7 @@ services:
       - product-service-db
 
   product-service-db:
-    image: postgres:alpine
+    image: postgres:15.6-alpine
     restart: always
     environment:
       - POSTGRES_USER=postgres
@@ -59,7 +62,7 @@ services:
       - order-service-db
 
   order-service-db:
-    image: postgres:alpine
+    image: postgres:15.6-alpine
     restart: always
     environment:
       - POSTGRES_USER=postgres
